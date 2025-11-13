@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Portal - Management System</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+  <link rel="stylesheet" href="../css/Dashboard.css">
+  <link rel="stylesheet" href="/assets/css/custom-alert.css">
+</head>
+<body>
+
+  <!-- Sidebar Navigation -->
+  <aside class="sidebar">
+    <div class="logo-container">
+      <div class="logo-icon">
+        <span class="material-symbols-outlined">home</span>
+      </div>
+      <div class="logo-text">
+        <div class="logo-title">Admin Portal</div>
+        <div class="logo-subtitle">Management System</div>
+      </div>
+    </div>
+
+    <nav class="nav-menu">
+      <div class="nav-section-title">NAVIGATION</div>
+      <a href="../html/Dashboard.html" class="nav-item active">
+        <span class="material-symbols-outlined">dashboard</span>
+        <div class="nav-text">
+          <div class="nav-title">Dashboard</div>
+          <div class="nav-subtitle">Analytics and overview</div>
+        </div>
+      </a>
+      <a href="../html/StudentProfile.html" class="nav-item">
+        <span class="material-symbols-outlined">assignment_ind</span>
+        <div class="nav-text">
+          <div class="nav-title">Student Profiles</div>
+          <div class="nav-subtitle">Manage student data</div>
+        </div>
+      </a>
+      <a href="../html/Referral.html" class="nav-item">
+        <span class="material-symbols-outlined">article</span>
+        <div class="nav-text">
+          <div class="nav-title">Referrals</div>
+          <div class="nav-subtitle">Track and manage referrals</div>
+        </div>
+      </a>
+    </nav>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="main-content">
+
+    <!-- Header -->
+    <header class="header">
+      <h1 class="page-title">Dashboard</h1>
+      <div class="user-profile">
+        <div class="dropdown" id="profileDropdown">
+          <img src="your-profile.jpg" alt="User Profile" class="profile-image account-icon" id="profileButton">
+          <div class="dropdown-content">
+            <a href="../html/ProfileSettings.html"><span class="material-symbols-outlined">manage_accounts</span>Profile Settings</a>
+            <a href="LoginForm.html"><span class="material-symbols-outlined">logout</span>Logout</a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Dashboard Content -->
+    <div class="dashboard-content">
+
+      <!-- Welcome Section -->
+      <div class="welcome-section">
+        <h2 class="welcome-title">Welcome back, Jennylyn Calabucal</h2>
+        <p class="welcome-subtitle">Here's an overview of your referral management system</p>
+      </div>
+
+      <!-- Stats Grid -->
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-label">Total Referrals</div>
+          <div class="stat-value">Loading...</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Elementary</div>
+          <div class="stat-value">0</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Junior High School</div>
+          <div class="stat-value">0</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Senior High School</div>
+          <div class="stat-value">0</div>
+        </div>
+      </div>
+
+      <!-- Quick Stats & Status -->
+        <div class="stats">
+          <!-- Quick Status Pie Chart -->
+          <div class="card status-summary">
+            <h2>Quick Status Summary</h2>
+            <select id="statusFilter">
+              <option value="all">All Grades</option>
+              <option value="elementary">Elementary</option>
+              <option value="juniorHigh">Junior High</option>
+              <option value="seniorHigh">Senior High</option>
+            </select>
+            <canvas id="statusPieChart"></canvas>
+          </div>
+      
+          <!-- Severity Pie Chart -->
+          <div class="card severity-summary">
+            <h2>Severity Summary</h2>
+            <select id="severityFilter">
+              <option value="all">All Grades</option>
+              <option value="elementary">Elementary</option>
+              <option value="juniorHigh">Junior High</option>
+              <option value="seniorHigh">Senior High</option>
+            </select>
+            <canvas id="severityPieChart"></canvas>
+          </div>
+        </div>
+
+
+      <!-- Charts -->
+      <div class="charts">
+        <div class="card">
+          <h2>Referral Trends per Grade Level</h2>
+          <canvas id="gradeChart"></canvas>
+        </div>
+        <div class="card">
+          <h2>Quarterly Analytics</h2>
+          <canvas id="quarterChart"></canvas>
+        </div>
+      </div>
+
+      <!-- Consultation List Table -->
+      <div class="tables">
+        <div class="card" style="flex: 1 1 100%;">
+          <h2>Consultation List</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Student Name</th>
+                <th>Grade Level</th>
+                <th>Referral Date</th>
+                <th>Status</th>
+                <th>Details</th>
+              </tr>
+            </thead>
+            <tbody id="consultationList">
+              <tr>
+                <td>John Doe</td>
+                <td>10</td>
+                <td>2025-11-01</td>
+                <td>Pending</td>
+                <td><a href="#">View</a></td>
+              </tr>
+              <tr>
+                <td>Jane Smith</td>
+                <td>12</td>
+                <td>2025-10-15</td>
+                <td>Complete</td>
+                <td><a href="#">View</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Scripts -->
+  <script src="/api/api-client.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <script src="../js/Dashboard.js"></script>
+  <script src="/js/logout.js"></script>
+  <script src="/assets/js/custom-alert.js"></script>
+</body>
+</html>

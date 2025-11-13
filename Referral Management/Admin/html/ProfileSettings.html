@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Portal - Management System</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+    <link rel="stylesheet" href="../css/ProfileSettings.css">
+</head>
+<body>
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+        <div class="logo-container">
+            <div class="logo-icon">
+                <span class="material-symbols-outlined">home</span>
+            </div>
+            <div class="logo-text">
+                <div class="logo-title">Admin Portal</div>
+                <div class="logo-subtitle">Management System</div>
+            </div>
+        </div>
+
+        <nav class="nav-menu">
+            <div class="nav-section-title">NAVIGATION</div>
+            <a href="../html/Dashboard.html" class="nav-item active">
+                <span class="material-symbols-outlined">dashboard</span>
+                <div class="nav-text">
+                    <div class="nav-title">Dashboard</div>
+                    <div class="nav-subtitle">Analytics and overview</div>
+                </div>
+            </a>
+            <a href="../html/StudentProfile.html" class="nav-item">
+                <span class="material-symbols-outlined">assignment_ind</span>
+                <div class="nav-text">
+                    <div class="nav-title">Student Profiles</div>
+                    <div class="nav-subtitle">Manage student data</div>
+                </div>
+            </a>
+            <a href="../html/Referral.html" class="nav-item">
+                <span class="material-symbols-outlined">article</span>
+                <div class="nav-text">
+                    <div class="nav-title">Referrals</div>
+                    <div class="nav-subtitle">Track and manage referrals</div>
+                </div>
+            </a>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Header -->
+        <header class="header">
+            <h1 class="page-title">Profile Settings</h1>
+            <div class="user-profile">
+              <div class="dropdown" id="profileDropdown">
+                  <img src="../images/nai.jpg" 
+                       alt="User Profile" 
+                       class="profile-image account-icon" 
+                       id="profileButton">
+                  <div class="dropdown-content">
+                    <a href=".../html/ProfileSettings.html"><span class="material-symbols-outlined">manage_accounts</span>Profile Settings</a>
+                    <a href="../html/Login_Form.html"><span class="material-symbols-outlined">logout</span>Logout</a>
+                  </div>
+                </div>
+            </div>
+          </header>
+
+          <div class="profile-container">
+            <!-- Profile Information -->
+            <div class="card profile-info">
+              <h2>Profile Information</h2>
+              <div class="profile-header">
+                <div class="profile-pic">
+                  <img src="../images/nai.jpg" alt="Profile Photo">
+                  <div class="status-ring"></div>
+                </div>
+                <div class="profile-text">
+                  <h3>Nailong</h3>
+                  <p>Administrator</p>
+                  <span class="approved"><i>✔</i> APPROVED</span>
+                </div>
+              </div>
+          
+              <div class="profile-details">
+                <div class="input-group">
+                  <label>First Name</label>
+                  <input type="text">
+                </div>
+                <div class="input-group">
+                  <label>Last Name</label>
+                  <input type="text">
+                </div>
+                <div class="input-group">
+                  <label>Nickname</label>
+                  <input type="text">
+                </div>
+                <div class="input-group">
+                  <label>Title</label>
+                  <input type="text">
+                </div>
+                <button id="edit-btn">Edit Profile</button>
+              </div>
+            </div>
+        
+            <!-- Account Information -->
+            <div class="card account-info">
+              <h2>Account Information</h2>
+              <div class="info-grid">
+                <div>
+                  <label>Email Address</label>
+                  <input type="text">
+                </div>
+                <div>
+                  <label>Last Login</label>
+                  <input type="text">
+                </div>
+                <div>
+                  <label>Account Status</label>
+                  <span class="status approved">APPROVED</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+    </main>
+
+    <script src="..js/ProfileSettings.js"></script>
+</body>
+</html>

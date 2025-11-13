@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Portal - Management System</title>
+  <!-- Google Icons -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="../css/StudentProfile.css">
+</head>
+<body>
+  <!-- Sidebar Navigation -->
+  <aside class="sidebar">
+    <div class="logo-container">
+      <div class="logo-icon">
+        <span class="material-symbols-outlined">home</span>
+      </div>
+      <div class="logo-text">
+        <div class="logo-title">Admin Portal</div>
+        <div class="logo-subtitle">Management System</div>
+      </div>
+    </div>
+
+    <nav class="nav-menu">
+      <div class="nav-section-title">NAVIGATION</div>
+      <a href="../html/Dashboard.html" class="nav-item">
+        <span class="material-symbols-outlined">dashboard</span>
+        <div class="nav-text">
+          <div class="nav-title">Dashboard</div>
+          <div class="nav-subtitle">Analytics and overview</div>
+        </div>
+      </a>
+      <a href="../html/StudentProfile.html" class="nav-item">
+        <span class="material-symbols-outlined">assignment_ind</span>
+        <div class="nav-text">
+          <div class="nav-title">Student Profiles</div>
+          <div class="nav-subtitle">Manage student data</div>
+        </div>
+      </a>
+      <a href="../html/Referral.html" class="nav-item">
+        <span class="material-symbols-outlined">article</span>
+        <div class="nav-text">
+          <div class="nav-title">Referrals</div>
+          <div class="nav-subtitle">Track and manage referrals</div>
+        </div>
+      </a>
+    </nav>
+  </aside>
+
+  <!-- Main Content -->
+  <!-- Main Content -->
+  <main class="main-content">
+    <!-- Header -->
+    <header class="header">
+      <h1 class="page-title">Student Profile</h1>
+      <div class="user-profile">
+        <div class="dropdown" id="profileDropdown">
+          <img src="your-profile.jpg" 
+               alt="User Profile" 
+               class="profile-image account-icon" 
+               id="profileButton">
+          <div class="dropdown-content">
+            <a href="../html/ProfileSettings.html"><span class="material-symbols-outlined">manage_accounts</span>Profile Settings</a>
+            <a href="LoginForm.html"><span class="material-symbols-outlined">logout</span>Logout</a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Student List -->
+    <section class="student-list">
+      <div class="list-card">
+        <div class="list-filters">
+          <input type="text" id="searchInput" placeholder="Search students...">
+          <select id="gradeFilter">
+            <option value="all">All Levels</option>
+            <option value="elem">Elementary</option>
+            <option value="jhs">High School</option>
+            <option value="shs">Senior High School</option>
+          </select>
+          <button class="btn-add" id="bulkUploadBtn">+ Add Students</button>
+        </div>
+
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Student Name</th>
+                <th>Level</th>
+                <th>Grade</th>
+                <th>Contact Number</th>
+                <th>Adviser</th>
+              </tr>
+            </thead>
+            <tbody id="studentTable">
+              <tr>
+                <td colspan="5" style="text-align:center;">No students uploaded yet</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  </main>
+
+    <!-- Bulk Upload Popup -->
+      <div id="bulkUploadPopup" class="popup-overlay">
+        <div class="popup-box">
+          <span class="close-btn" id="closeBulkPopup">&times;</span>
+          <h2>Bulk Upload Students</h2>
+          <p>Upload a CSV or Excel file (.xlsx) containing student data.</p>
+
+          <div class="file-upload">
+            <label for="studentFileInput" class="custom-file-label">
+              Choose File
+            </label>
+            <input type="file" id="studentFileInput" accept=".csv, .xlsx">
+            <span id="fileNameDisplay"></span>
+          </div>
+
+          <div id="fileError" class="error-msg"></div>
+
+          <div class="actions">
+            <button class="save-btn" id="uploadStudentsBtn">Upload</button>
+            <button class="save-btn cancel-btn" id="cancelBulkUpload">Cancel</button>
+          </div>
+        </div>
+      </div>
+
+    
+    
+  <!-- IMPORTANT: Load api-client.js BEFORE StudentProfile.js -->
+  <script src="/api/api-client.js"></script>
+  <script src="/assets/js/custom-alert.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+
+  <script src="../js/StudentProfile.js"></script>
+  <script src="/js/logout.js"></script>
+</body>
+</html>
