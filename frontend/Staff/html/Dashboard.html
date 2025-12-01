@@ -1,0 +1,206 @@
+<!-- Counselor/Staff Dashboard.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Counselor Portal - Dashboard</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+  <link rel="stylesheet" href="../css/Dashboard.css">
+  <link rel="stylesheet" href="../../assets/css/custom-alert.css">
+</head>
+<body>
+
+  <!-- Sidebar Navigation -->
+  <aside class="sidebar">
+    <div class="logo-container">
+      <div class="logo-icon">
+        <span class="material-symbols-outlined">psychology</span>
+      </div>
+      <div class="logo-text">
+        <div class="logo-title">Counselor Portal</div>
+        <div class="logo-subtitle">Management System</div>
+      </div>
+    </div>
+
+    <nav class="nav-menu">
+      <div class="nav-section-title">NAVIGATION</div>
+      <a href="Dashboard.html" class="nav-item active">
+        <span class="material-symbols-outlined">dashboard</span>
+        <div class="nav-text">
+          <div class="nav-title">Dashboard</div>
+          <div class="nav-subtitle">Overview and statistics</div>
+        </div>
+      </a>
+      <a href="StudentProfile.html" class="nav-item">
+        <span class="material-symbols-outlined">assignment_ind</span>
+        <div class="nav-text">
+          <div class="nav-title">Student Profiles</div>
+          <div class="nav-subtitle">View all students by adviser</div>
+        </div>
+      </a>
+      <a href="Referral.html" class="nav-item">
+        <span class="material-symbols-outlined">article</span>
+        <div class="nav-text">
+          <div class="nav-title">Referrals</div>
+          <div class="nav-subtitle">Manage student referrals</div>
+        </div>
+      </a>
+    </nav>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="main-content">
+
+    <!-- Header -->
+    <header class="header">
+      <h1 class="page-title">Dashboard</h1>
+      <div class="user-profile">
+        <div class="dropdown" id="profileDropdown">
+          <img src="your-profile.jpg" alt="User Profile" class="profile-image account-icon" id="profileButton">
+          <div class="dropdown-content">
+            <a href="ProfileSettings.html"><span class="material-symbols-outlined">manage_accounts</span>Profile Settings</a>
+            <a href="../../pages/LoginForm.html"><span class="material-symbols-outlined">logout</span>Logout</a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Dashboard Content -->
+    <div class="dashboard-content">
+
+      <!-- Welcome Section -->
+      <div class="welcome-section">
+        <h2 class="welcome-title" id="welcomeTitle">Welcome back</h2>
+        <p class="welcome-subtitle">Here's an overview of the referral management system</p>
+      </div>
+
+      <!-- Stats Grid -->
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-icon">
+            <span class="material-symbols-outlined">article</span>
+          </div>
+          <div class="stat-content">
+            <div class="stat-label">Total Referrals</div>
+            <div class="stat-value" id="totalReferrals">0</div>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon elementary">
+            <span class="material-symbols-outlined">school</span>
+          </div>
+          <div class="stat-content">
+            <div class="stat-label">Elementary</div>
+            <div class="stat-value" id="elementaryCount">0</div>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon junior-high">
+            <span class="material-symbols-outlined">menu_book</span>
+          </div>
+          <div class="stat-content">
+            <div class="stat-label">Junior High School</div>
+            <div class="stat-value" id="juniorHighCount">0</div>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon senior-high">
+            <span class="material-symbols-outlined">auto_stories</span>
+          </div>
+          <div class="stat-content">
+            <div class="stat-label">Senior High School</div>
+            <div class="stat-value" id="seniorHighCount">0</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Recent Referrals Table -->
+      <div class="card recent-referrals-section" style="margin-bottom: 2rem;">
+        <h2>Recent Referrals</h2>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Referral ID</th>
+                <th>Student Name</th>
+                <th>Level</th>
+                <th>Grade</th>
+                <th>Date Added</th>
+                <th>Status</th>
+                <th>Severity</th>
+              </tr>
+            </thead>
+            <tbody id="recentReferralsTable">
+              <tr>
+                <td colspan="7" style="text-align: center;">Loading recent referrals...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Quick Stats & Priority -->
+      <div class="stats">
+        <!-- Quick Status Pie Chart -->
+        <div class="card status-summary">
+          <h2>Referral Status Overview</h2>
+          <select id="statusFilter" class="filter-select">
+            <option value="all">All Levels</option>
+            <option value="Elementary">Elementary</option>
+            <option value="JHS">Junior High School</option>
+            <option value="SHS">Senior High School</option>
+          </select>
+          <canvas id="statusPieChart"></canvas>
+          <div class="chart-legend" id="statusLegend"></div>
+        </div>
+    
+        <!-- Severity Pie Chart -->
+        <div class="card priority-summary">
+          <h2>Severity Distribution</h2>
+          <select id="priorityFilter" class="filter-select">
+            <option value="all">All Levels</option>
+            <option value="Elementary">Elementary</option>
+            <option value="JHS">Junior High School</option>
+            <option value="SHS">Senior High School</option>
+          </select>
+          <canvas id="priorityPieChart"></canvas>
+          <div class="chart-legend" id="priorityLegend"></div>
+        </div>
+      </div>
+
+      <!-- Charts -->
+      <div class="charts">
+        <div class="card">
+          <h2>Referrals by Grade Level</h2>
+          <canvas id="gradeChart"></canvas>
+        </div>
+        <div class="card">
+          <h2>Quarterly Referral Trends</h2>
+          <canvas id="monthlyChart"></canvas>
+        </div>
+      </div>
+
+      <div class="chart-container">
+        <div class="chart-header">
+          <h3>Incident Categories</h3>
+            <select id="categoryFilter" class="filter-select">
+            <option value="all">All Categories</option>
+      <!-- Categories will be dynamically loaded here -->
+            </select>
+        </div>
+      <canvas id="categoryChart"></canvas>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Scripts -->
+  <script src="../../api/api-client.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <script src="../js/Dashboard.js"></script>
+  <script src="../../js/logout.js"></script>
+  <script src="../../assets/js/custom-alert.js"></script>
+</body>
+</html>

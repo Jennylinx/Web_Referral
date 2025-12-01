@@ -1,0 +1,83 @@
+<!--Student Student_Form.html-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Concern Form</title>
+  <link rel="stylesheet" href="Student_Form.css">
+</head>
+<body>
+  <!-- Instructions Screen -->
+  <div class="instructions-container" id="instructionsScreen">
+    <h2>📋 Student Concern Form - Instructions</h2>
+    <div class="instructions-content">
+      <p>Welcome to the Student Concern Form. This is a safe space for you to share any concerns, issues, or situations you need guidance with.</p>
+      
+      <h3>📌 Before You Begin:</h3>
+      <ul>
+        <li><strong>Your Privacy Matters:</strong> You can choose to remain anonymous or use a preferred name.</li>
+        <li><strong>Be Honest:</strong> Please describe your concern clearly so we can provide the best support.</li>
+        <li><strong>Keep Your Reference Number:</strong> After submitting, you'll receive a Referral ID. Save this number to track your concern.</li>
+        <li><strong>Confidential:</strong> All submissions are treated with care and confidentiality.</li>
+      </ul>
+
+      <div class="important-note">
+        <strong>⚠️ Important:</strong> If you're experiencing an emergency or immediate danger, please contact your teacher, school counselor, or guardian right away.
+      </div>
+
+      <button type="button" id="proceedBtn" class="proceed-btn">I Understand - Proceed to Form</button>
+    </div>
+  </div>
+
+  <!-- Main Form -->
+  <div class="form-container" id="formScreen" style="display: none;">
+    <button type="button" id="backToInstructionsBtn" class="back-btn">← Back to Instructions</button>
+    <h2>Student Concern Form</h2>
+    <form id="complaintForm">
+
+      <div class="form-group">
+        <label for="nameOption">How would you like to identify yourself?</label>
+        <select id="nameOption" name="nameOption" required>
+          <option value="" disabled selected>Choose an option</option>
+          <option value="realName">Use my real name</option>
+          <option value="preferNot">Prefer not to say</option>
+          <option value="anonymous">Use an anonymous name</option>
+        </select>
+      </div>
+
+      <div class="form-group" id="nameInputGroup" style="display: none;">
+        <label for="studentName" id="nameLabel">Your Name</label>
+        <input type="text" id="studentName" name="studentName" placeholder="Enter your name">
+      </div>
+
+      <div class="form-group">
+        <label for="concern">Your Concern</label>
+        <textarea id="concern" name="concern" rows="6" placeholder="Please describe your concern, issue, or situation in detail. The more information you provide, the better we can help you..." required></textarea>
+      </div>
+
+      <button type="submit">Submit Concern</button>
+    </form>
+  </div>
+
+  <!-- Confirmation Screen -->
+  <div class="confirmation-container" id="confirmationScreen" style="display: none;">
+    <div class="confirmation-content">
+      <div class="success-icon">✓</div>
+      <h2>Concern Submitted Successfully!</h2>
+      <p>Thank you for reaching out. Your concern has been received and will be reviewed by our support team.</p>
+      
+      <div class="referral-box">
+        <label>Your Referral ID:</label>
+        <div class="referral-id" id="displayReferralId"></div>
+        <p class="referral-note">📌 Please save this number. You can use it to check the status of your concern.</p>
+      </div>
+
+      <button type="button" id="submitAnotherBtn" class="secondary-btn">Submit Another Concern</button>
+    </div>
+  </div>
+
+  <script src="Student_Form.js"></script>
+</body>
+</html>
